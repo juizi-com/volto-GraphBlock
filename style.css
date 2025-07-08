@@ -1,0 +1,18 @@
+.graph-block {
+  max-width: var(--default-container-width);
+  margin: 0 auto 3rem;
+}
+
+.graph-block.narrow .graph-inner {
+  max-width: var(--narrow-container-width);
+  margin: auto;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+}
+
+.graph-caption {
+  text-align: center;
+}
