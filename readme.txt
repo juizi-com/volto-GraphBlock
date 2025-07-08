@@ -1,6 +1,6 @@
 These files get added to the customizations/components/Blocks folder
 
-To register IconLinkRow block, add to src/index.js
+To register GraphBlock block, add to src/index.js
 
 import graphSVG from '@plone/volto/icons/slider.svg';
 import { Edit as GraphBlockEdit, View as GraphBlockView} from './components/Blocks/GraphBlock';
