@@ -4,8 +4,14 @@
 }
 
 .graph-block.narrow .graph-inner {
-  max-width: var(--narrow-container-width);
-  margin: auto;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .graph-block.narrow .graph-inner {
+    max-width: 100%;
+  }
 }
 
 .chart-container {
@@ -15,4 +21,660 @@
 
 .graph-caption {
   text-align: center;
+}
+
+/* ── Table styles ────────────────────────────────────────── */
+
+.graph-table-search {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.graph-table-search__input {
+  flex: 1;
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.graph-table-search__input:focus {
+  outline: 0;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.graph-table-search__count {
+  font-size: 0.875rem;
+  color: #6c757d;
+  white-space: nowrap;
+}
+
+.graph-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.graph-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.graph-table thead th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  background: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.graph-table thead th:last-child {
+  border-right: none;
+}
+
+.graph-table tbody tr {
+  border-bottom: 1px solid #dee2e6;
+  transition: background 0.1s;
+}
+
+.graph-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.graph-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.graph-table tbody td {
+  padding: 0.65rem 1rem;
+  color: #212529;
+  border-right: 1px solid #dee2e6;
+  vertical-align: top;
+}
+
+.graph-table tbody td:last-child {
+  border-right: none;
+}
+
+.graph-table__no-results {
+  text-align: center;
+  color: #6c757d;
+  padding: 2rem !important;
+}
+
+/* Mobile: show data-label pseudo-headers */
+@media (max-width: 600px) {
+  .graph-table thead {
+    display: none;
+  }
+
+  .graph-table tbody tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+  }
+
+  .graph-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-right: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .graph-table tbody td:last-child {
+    border-bottom: none;
+  }
+
+  .graph-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #495057;
+    flex-shrink: 0;
+  }
+}
+
+/* ── Empty state ─────────────────────────────────────────── */
+
+.dv-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  border: 2px dashed #ced4da;
+  border-radius: 0.5rem;
+  background: #f8f9fa;
+  text-align: center;
+  min-height: 160px;
+}
+
+.dv-empty-state--preview {
+  min-height: 80px;
+  padding: 1.5rem;
+}
+
+.dv-empty-state__icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.5;
+}
+
+.dv-empty-state__message {
+  margin: 0;
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+/* ── Statistics cards ────────────────────────────────────── */
+
+.dv-stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dv-stats-cols-2 .dv-stat-card {
+  flex: 1 1 calc(50% - 0.5rem);
+}
+.dv-stats-cols-3 .dv-stat-card {
+  flex: 1 1 calc(33.333% - 0.67rem);
+}
+.dv-stats-cols-4 .dv-stat-card {
+  flex: 1 1 calc(25% - 0.75rem);
+}
+.dv-stats-cols-5 .dv-stat-card {
+  flex: 1 1 calc(20% - 0.8rem);
+}
+
+.dv-stat-card {
+  background: var(--card-bg, #0a0a0a);
+  color: var(--card-fg, #fff);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 200px;
+}
+
+.dv-stat-card__label {
+  font-size: 0.875rem;
+  opacity: 0.75;
+  margin-bottom: 0.25rem;
+}
+
+.dv-stat-card__primary {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.15rem;
+}
+
+.dv-stat-card__unit {
+  font-size: 1.25rem;
+  opacity: 0.85;
+}
+
+.dv-stat-card__primary-label {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-bottom: 0.75rem;
+}
+
+.dv-stat-card__subs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.dv-stat-card__sub {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+}
+
+.dv-stat-card__sub-arrow {
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.dv-stat-card__sub-label {
+  opacity: 0.7;
+  flex: 1;
+}
+
+.dv-stat-card__sub-val {
+  font-weight: 600;
+}
+
+.dv-stat-card__sub--up .dv-stat-card__sub-arrow {
+  color: #4bc0c0;
+}
+.dv-stat-card__sub--down .dv-stat-card__sub-arrow {
+  color: #ff6384;
+}
+.dv-stat-card__sub--neutral .dv-stat-card__sub-arrow {
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  .dv-stats-cols-2 .dv-stat-card,
+  .dv-stats-cols-3 .dv-stat-card,
+  .dv-stats-cols-4 .dv-stat-card,
+  .dv-stats-cols-5 .dv-stat-card {
+    flex: 1 1 100%;
+  }
+}
+
+/* ── Ranked bar list ─────────────────────────────────────── */
+
+.dv-ranked-bars {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.dv-ranked-bar__track {
+  position: relative;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: #e9ecef;
+  overflow: hidden;
+}
+
+.dv-ranked-bar__track--no-bg {
+  background: transparent;
+}
+
+.dv-ranked-bar__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: 999px;
+  background: var(--link-color, #1f77b4);
+  transition: width 0.6s ease;
+}
+
+.dv-ranked-bar__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.dv-ranked-bar__label {
+  color: #495057;
+}
+
+.dv-ranked-bar__value {
+  font-weight: 600;
+  color: #212529;
+  white-space: nowrap;
+}
+
+/* ── Ranked cards ────────────────────────────────────────── */
+
+.dv-ranked-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.dv-ranked-cards--cols-2 .dv-ranked-card {
+  flex: 1 1 calc(50% - 0.75rem);
+}
+.dv-ranked-cards--cols-3 .dv-ranked-card {
+  flex: 1 1 calc(33.333% - 1rem);
+}
+.dv-ranked-cards--cols-4 .dv-ranked-card {
+  flex: 1 1 calc(25% - 1.125rem);
+}
+
+.dv-ranked-card {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  min-width: 220px;
+}
+
+.dv-ranked-card__header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #dee2e6;
+}
+.dv-ranked-card__header:has(h4:empty) {
+  display: none;
+}
+
+.dv-ranked-card__title {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.dv-ranked-card__subtitle {
+  margin: 0;
+  font-size: 0.825rem;
+  color: #6c757d;
+}
+
+.dv-ranked-card__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dv-ranked-card__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.dv-ranked-card__item-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+}
+
+.dv-ranked-card__item-rank {
+  color: #adb5bd;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  width: 1.1rem;
+}
+
+.dv-ranked-card__item-label {
+  flex: 1;
+  color: #495057;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dv-ranked-card__item-value {
+  font-weight: 600;
+  color: #212529;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Bar inside card reuses .dv-ranked-bar__track and __fill */
+.dv-ranked-card__item .dv-ranked-bar__track {
+  height: 0.35rem;
+}
+
+@media (max-width: 768px) {
+  .dv-ranked-cards--cols-2 .dv-ranked-card,
+  .dv-ranked-cards--cols-3 .dv-ranked-card,
+  .dv-ranked-cards--cols-4 .dv-ranked-card {
+    flex: 1 1 100%;
+  }
+}
+
+/* ── Ranked bar groups ───────────────────────────────────── */
+
+.dv-ranked-bar-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dv-ranked-bar-group {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.dv-ranked-bar-group__header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.dv-ranked-bar-group__title {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.dv-ranked-bar-group__subtitle {
+  margin: 0;
+  font-size: 0.825rem;
+  color: #6c757d;
+}
+
+/* ── Mobile carousel (Embla) ─────────────────────────────── */
+
+@media (max-width: 768px) {
+  .dv-embla {
+    position: relative;
+    width: 100%;
+  }
+
+  .dv-embla__viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .dv-embla__container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .dv-embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+
+  /* On mobile, slides take full width so cards don't need flex sizing */
+  .dv-stats-grid .dv-stat-card,
+  .dv-ranked-cards .dv-ranked-card,
+  .dv-ranked-bar-groups .dv-ranked-bar-group {
+    flex: 1 1 100%;
+  }
+
+  .dv-embla__dots {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    padding-top: 0.75rem;
+  }
+
+  .dv-embla__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    border: none;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .dv-embla__dot.is-selected {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* ── Card alignment ──────────────────────────────────────── */
+/* Alignment applies to card headers and stat labels/values only.
+   Sub-indicators (.dv-stat-card__subs) and ranked lists
+   (.dv-ranked-card__list, .dv-ranked-bars) are always left-aligned. */
+
+/* Stat cards: label, primary value, and primary key label */
+.dv-cards-align-left .dv-stat-card__label,
+.dv-cards-align-left .dv-stat-card__primary,
+.dv-cards-align-left .dv-stat-card__primary-label {
+  text-align: left;
+}
+
+.dv-cards-align-center .dv-stat-card__label,
+.dv-cards-align-center .dv-stat-card__primary,
+.dv-cards-align-center .dv-stat-card__primary-label {
+  text-align: center;
+}
+
+.dv-cards-align-center .dv-stat-card__primary {
+  justify-content: center;
+}
+
+.dv-cards-align-right .dv-stat-card__label,
+.dv-cards-align-right .dv-stat-card__primary,
+.dv-cards-align-right .dv-stat-card__primary-label {
+  text-align: right;
+}
+
+.dv-cards-align-right .dv-stat-card__primary {
+  justify-content: flex-end;
+}
+
+/* Ranked cards and bar groups: header title and subtitle only */
+.dv-cards-align-center .dv-ranked-card__title,
+.dv-cards-align-center .dv-ranked-card__subtitle,
+.dv-cards-align-center .dv-ranked-bar-group__title,
+.dv-cards-align-center .dv-ranked-bar-group__subtitle {
+  text-align: center;
+}
+
+.dv-cards-align-right .dv-ranked-card__title,
+.dv-cards-align-right .dv-ranked-card__subtitle,
+.dv-cards-align-right .dv-ranked-bar-group__title,
+.dv-cards-align-right .dv-ranked-bar-group__subtitle {
+  text-align: right;
+}
+
+/* ── Card themes ─────────────────────────────────────────── */
+
+/* Light theme — dark text for light backgrounds */
+.dv-stat-card.theme-dark,
+.dv-ranked-card.theme-dark,
+.dv-ranked-bar-group.theme-dark {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dv-stat-card.theme-dark .dv-stat-card__label,
+.dv-stat-card.theme-dark .dv-stat-card__primary-label,
+.dv-stat-card.theme-dark .dv-stat-card__sub-label,
+.dv-ranked-card.theme-dark .dv-ranked-card__subtitle,
+.dv-ranked-card.theme-dark .dv-ranked-card__item-label,
+.dv-ranked-card.theme-dark .dv-ranked-card__item-rank,
+.dv-ranked-bar-group.theme-dark .dv-ranked-bar-group__subtitle,
+.dv-ranked-bar-group.theme-dark .dv-ranked-bar__label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.dv-stat-card.theme-dark .dv-stat-card__subs,
+.dv-ranked-card.theme-dark .dv-ranked-card__header,
+.dv-ranked-bar-group.theme-dark .dv-ranked-bar-group__header {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dv-stat-card.theme-dark .dv-ranked-bar__track,
+.dv-ranked-card.theme-dark .dv-ranked-bar__track,
+.dv-ranked-bar-group.theme-dark .dv-ranked-bar__track {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Dark theme — light text forced to dark for light backgrounds */
+.dv-stat-card.theme-light,
+.dv-ranked-card.theme-light,
+.dv-ranked-bar-group.theme-light {
+  color: #212529;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.dv-stat-card.theme-light .dv-stat-card__label,
+.dv-stat-card.theme-light .dv-stat-card__primary-label,
+.dv-stat-card.theme-light .dv-stat-card__sub-label,
+.dv-ranked-card.theme-light .dv-ranked-card__subtitle,
+.dv-ranked-card.theme-light .dv-ranked-card__item-label,
+.dv-ranked-card.theme-light .dv-ranked-card__item-rank,
+.dv-ranked-bar-group.theme-light .dv-ranked-bar-group__subtitle,
+.dv-ranked-bar-group.theme-light .dv-ranked-bar__label {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.dv-stat-card.theme-light .dv-stat-card__subs,
+.dv-ranked-card.theme-light .dv-ranked-card__header,
+.dv-ranked-bar-group.theme-light .dv-ranked-bar-group__header {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.dv-empty-state__help {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--link-color, #1f77b4);
+  text-decoration: underline;
+}
+
+.dv-empty-state__help:hover {
+  opacity: 0.8;
+}
+
+/* ── Loading spinner ─────────────────────────────────────── */
+
+.dv-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  min-height: 120px;
+}
+
+.dv-spinner__ring {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid #dee2e6;
+  border-top-color: var(--link-color, #1f77b4);
+  border-radius: 50%;
+  animation: dv-spin 0.75s linear infinite;
+}
+
+@keyframes dv-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dv-load-error {
+  padding: 1rem;
+  color: #856404;
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
 }
