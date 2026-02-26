@@ -22,7 +22,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import useEmblaCarousel from 'embla-carousel-react';
 
 // Update this URL once the block is published to your GitHub repo
-const README_URL = 'https://github.com/YOUR-ORG/YOUR-REPO/blob/main/src/customizations/components/Blocks/GraphBlock/README.md';
+const README_URL = 'https://github.com/juizi-com/volto-GraphBlock/blob/main/README.md';
 
 ChartJS.register(
   CategoryScale,
