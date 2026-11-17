@@ -1,5 +1,17 @@
 # Data Visualisation Block
 
+> **Moved.** The Data visualisation block now lives in
+> [juizi-blocks](https://github.com/juizi-com/juizi-blocks), in
+> `frontend/packages/volto-juizi-blocks/src/components/Blocks/Graph/`, with
+> its backend support in `juizi.blocks.graph`. It keeps this block's id
+> (`graphBlock`) and field ids, so saved blocks keep working. It now draws
+> with ECharts (on the server as SVG, then interactive), reads the CSV on
+> the server so pages always show the current file, and adds a visual chart
+> picker, pasted figures and print support. Sites install juizi-blocks
+> instead of copying this folder in, and remove their own `graphBlock`
+> registration and imports. This repository is kept read-only for
+> reference; make changes in juizi-blocks.
+
 A Plone Volto block for rendering CSV data as charts, tables, and data cards.
 
 ## Installation
